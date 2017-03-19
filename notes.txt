@@ -22,7 +22,7 @@ Pressure:     1020.7 mb
 
 Typical XML
 
-<?xml version="1.0" encoding="ISO-8859-1"?> 
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet href="latest_ob.xsl" type="text/xsl"?>
 <current_observation version="1.0"
 	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"

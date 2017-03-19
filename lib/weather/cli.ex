@@ -3,6 +3,8 @@ defmodule Weather.CLI do
   Handle the command line parsing and dispatch to various functions
   """
 
+  import Weather.Client, only: [fetch: 1]
+
   def main(argv) do
     argv
     |> parse_args
@@ -35,5 +37,6 @@ defmodule Weather.CLI do
   def process(station_id) do
     station_id
     |> String.upcase
+    |> fetch
   end
 end

@@ -4,6 +4,7 @@ defmodule Weather.Mixfile do
   def project do
     [app: :weather,
      version: "0.1.0",
+     name: "Weather station app",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -28,6 +29,8 @@ defmodule Weather.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:httpoison, "~> 0.11.0"}
+    ]
   end
 end

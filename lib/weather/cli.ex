@@ -4,6 +4,7 @@ defmodule Weather.CLI do
   """
 
   import Weather.Client, only: [fetch: 1]
+  import Weather.XMLParser, only: [parse_xml: 1]
 
   def main(argv) do
     argv
@@ -35,8 +36,12 @@ defmodule Weather.CLI do
   end
 
   def process(station_id) do
-    station_id
-    |> String.upcase
-    |> fetch
+    case String.upcase(station_id) |> fetch do
+      {:ok, body} ->
+        body
+        |> parse_xml
+        #|> print_formatted_data
+      {:error, _} -> System.halt(2)
+    end
   end
 end

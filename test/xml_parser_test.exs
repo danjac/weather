@@ -83,7 +83,7 @@ defmodule XmlParserTest do
 
   test "parse_xml" do
     report = parse_xml(xml_doc())
-    assert report == %Weather.Report{
+    assert report == %Report{
       location:     "Denton Municipal Airport, TX",
       weather:      "Fair",
       temperature:  "58.0 F (14.4 C)",

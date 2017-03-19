@@ -15,21 +15,21 @@ defmodule Weather.XMLParser do
   end
 
   def parse_location(report, doc),
-    do: parse_data(report, doc, :location, "location")
+    do: parse_xml_text(report, doc, :location, "location")
 
   def parse_weather(report, doc),
-    do: parse_data(report, doc, :weather, "weather")
+    do: parse_xml_text(report, doc, :weather, "weather")
 
   def parse_wind(report, doc),
-    do: parse_data(report, doc, :wind, "wind_string")
+    do: parse_xml_text(report, doc, :wind, "wind_string")
 
   def parse_temp(report, doc),
-    do: parse_data(report, doc, :temperature, "temperature_string")
+    do: parse_xml_text(report, doc, :temperature, "temperature_string")
 
   def parse_pressure(report, doc),
-    do: parse_data(report, doc, :pressure, "pressure_string")
+    do: parse_xml_text(report, doc, :pressure, "pressure_string")
 
-  defp parse_data(report, doc, field, xml_element) do
+  defp parse_xml_text(report, doc, field, xml_element) do
     with value = doc |> xpath(~x"//#{xml_element}/text()") do
       Map.put(report, field, to_string(value))
     end

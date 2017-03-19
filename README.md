@@ -1,6 +1,6 @@
 # Weather
 
-**TODO: Add description**
+Weather station app in Elixir
 
 ## Installation
 

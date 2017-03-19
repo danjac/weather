@@ -3,6 +3,7 @@ defmodule Weather.Mixfile do
 
   def project do
     [app: :weather,
+     escript: escript_config(),
      version: "0.1.0",
      name: "Weather station app",
      elixir: "~> 1.4",
@@ -31,7 +32,14 @@ defmodule Weather.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.11.0"},
-      {:sweet_xml, "~> 0.6.0"}
+      {:sweet_xml, "~> 0.6.0"},
+      {:ex_doc,    "~> 0.12"},
+      {:earmark,   "~> 1.0", override: true}
     ]
   end
+
+  defp escript_config do
+    [ main_module: Weather.CLI ]
+  end
+
 end

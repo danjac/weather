@@ -5,6 +5,7 @@ defmodule Weather.CLI do
 
   import Weather.Client, only: [fetch: 1]
   import Weather.XMLParser, only: [parse_xml: 1]
+  import Weather.Formatter, only: [format_and_print: 1]
 
   def main(argv) do
     argv
@@ -40,7 +41,7 @@ defmodule Weather.CLI do
       {:ok, body} ->
         body
         |> parse_xml
-        #|> print_formatted_data
+        |> format_and_print
       {:error, _} -> System.halt(2)
     end
   end
